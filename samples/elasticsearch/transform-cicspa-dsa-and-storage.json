@@ -1,0 +1,223 @@
+{
+  "frequency": "1m",
+  "sync": {
+    "time": {
+      "field": "Collection Time",
+      "delay": "60s"
+    }
+  },
+  "source": {
+    "index": [
+      "cicspa_storage*",
+      "cicspa_dsa*"
+    ],
+    "query": {
+      "match_all": {}
+    }
+  },
+  "dest": {
+    "index": "transform_cicspa_dsa_storage"
+  },
+  "pivot": {
+    "group_by": {
+      "APPLID": {
+        "terms": {
+          "field": "APPLID"
+        }
+      },
+      "Collection Time": {
+        "terms": {
+          "field": "Collection Time"
+        }
+      },
+      "Image": {
+        "terms": {
+          "field": "Image"
+        }
+      }
+    },
+    "aggregations": {
+            "Current EDSA Limit": {
+              "max": {
+                "field": "Current EDSA Limit"
+              }
+            },
+            "Current DSA Limit": {
+              "max": {
+                "field": "Current DSA Limit"
+              }
+            },
+      "CDSA": {
+        "filter": {
+          "term": {
+            "DSA Name": "CDSA"
+          }
+        },
+        "aggregations": {
+          "DSASize": {
+            "max": {
+              "field": "Peak DSA Size"
+            }
+          },
+          "LowestFreeStorage": {
+            "max": {
+              "field": "Lowest Free Storage"
+            }
+          }
+        }
+      },
+      "RDSA": {
+        "filter": {
+          "term": {
+            "DSA Name": "RDSA"
+          }
+        },
+        "aggregations": {
+          "DSASize": {
+            "max": {
+              "field": "Peak DSA Size"
+            }
+          },
+          "LowestFreeStorage": {
+            "max": {
+              "field": "Lowest Free Storage"
+            }
+          }
+        }
+      },
+      "SDSA": {
+        "filter": {
+          "term": {
+            "DSA Name": "SDSA"
+          }
+        },
+        "aggregations": {
+          "DSASize": {
+            "max": {
+              "field": "Peak DSA Size"
+            }
+          },
+          "LowestFreeStorage": {
+            "max": {
+              "field": "Lowest Free Storage"
+            }
+          }
+        }
+      },
+      "UDSA": {
+        "filter": {
+          "term": {
+            "DSA Name": "UDSA"
+          }
+        },
+        "aggregations": {
+          "DSASize": {
+            "max": {
+              "field": "Peak DSA Size"
+            }
+          },
+          "LowestFreeStorage": {
+            "max": {
+              "field": "Lowest Free Storage"
+            }
+          }
+        }
+      },
+      "ECDSA": {
+        "filter": {
+          "term": {
+            "DSA Name": "ECDSA"
+          }
+        },
+        "aggregations": {
+          "DSASize": {
+            "max": {
+              "field": "Peak DSA Size"
+            }
+          },
+          "LowestFreeStorage": {
+            "max": {
+              "field": "Lowest Free Storage"
+            }
+          }
+        }
+      },
+      "ERDSA": {
+        "filter": {
+          "term": {
+            "DSA Name": "ERDSA"
+          }
+        },
+        "aggregations": {
+          "DSASize": {
+            "max": {
+              "field": "Peak DSA Size"
+            }
+          },
+          "LowestFreeStorage": {
+            "max": {
+              "field": "Lowest Free Storage"
+            }
+          }
+        }
+      },
+      "ESDSA": {
+        "filter": {
+          "term": {
+            "DSA Name": "ESDSA"
+          }
+        },
+        "aggregations": {
+          "DSASize": {
+            "max": {
+              "field": "Peak DSA Size"
+            }
+          },
+          "LowestFreeStorage": {
+            "max": {
+              "field": "Lowest Free Storage"
+            }
+          }
+        }
+      },
+      "EUDSA": {
+        "filter": {
+          "term": {
+            "DSA Name": "EUDSA"
+          }
+        },
+        "aggregations": {
+          "DSASize": {
+            "max": {
+              "field": "Peak DSA Size"
+            }
+          },
+          "LowestFreeStorage": {
+            "max": {
+              "field": "Lowest Free Storage"
+            }
+          }
+        }
+      },
+      "ETDSA": {
+        "filter": {
+          "term": {
+            "DSA Name": "ETDSA"
+          }
+        },
+        "aggregations": {
+          "DSASize": {
+            "max": {
+              "field": "Peak DSA Size"
+            }
+          },
+          "LowestFreeStorage": {
+            "max": {
+              "field": "Lowest Free Storage"
+            }
+          }
+        }
+      }
+    }
+  }
+}
