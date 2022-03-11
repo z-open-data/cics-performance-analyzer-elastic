@@ -22,7 +22,7 @@ You can use this repository to:
 
 ## Installing the dashboards in an existing Elastic Stack instance
 
-The following instructions assume that you have an existing Elastic Stack instance into which you want to install the Kibana dashboards that are provided by this repository. For details on installing Elastic Stack, see the documentation on the Elastic website.
+The following instructions assume that you have an existing Elastic Stack instance into which you want to install the Kibana dashboards that are provided by this repository. The Elastic Stack artifacts in this repository were developed and tested with Elastic Stack 7.15.2. For details on installing Elastic Stack, see the documentation on the Elastic website.
 
 ### Create an Elasticsearch index lifecycle management (ILM) policy
 
