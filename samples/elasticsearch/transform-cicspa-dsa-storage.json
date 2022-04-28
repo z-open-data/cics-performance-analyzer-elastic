@@ -16,7 +16,7 @@
     }
   },
   "dest": {
-    "index": "transform_cicspa_dsa_storage"
+    "index": "transform-cicspa-dsa-storage"
   },
   "pivot": {
     "group_by": {

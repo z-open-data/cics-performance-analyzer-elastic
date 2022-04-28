@@ -1,0 +1,20 @@
+{
+  "index_patterns": ["transform-cicspa-dsa-storage-*"],                 
+  "template": {
+    "settings": {
+      "number_of_replicas": 0,
+      "index.lifecycle.name": "transform-cicspa-dsa-storage-ilm-policy",      
+      "index.lifecycle.rollover_alias": "transform-cicspa-dsa-storage"    
+    },
+    "mappings": {
+      "dynamic_templates": [ {
+        "strings": {
+          "match_mapping_type": "string",
+          "mapping": {
+            "type": "keyword"
+          }
+        }
+      } ]
+    }
+  }
+}

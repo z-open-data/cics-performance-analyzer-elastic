@@ -1,0 +1,7 @@
+{
+  "aliases": {
+    "transform-cicspa-dsa-storage": {
+      "is_write_index": true
+    }
+  }
+}
